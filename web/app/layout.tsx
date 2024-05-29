@@ -24,7 +24,7 @@ const LocaleLayout = ({
 }: {
   children: React.ReactNode
 }) => {
-  const locale = getLocaleOnServer()
+  const locale = getLocaleOnServer() // en-US
 
   return (
     <html lang={locale ?? 'en'} className="h-full">
@@ -44,7 +44,9 @@ const LocaleLayout = ({
         data-public-site-about={process.env.NEXT_PUBLIC_SITE_ABOUT}
       >
         <Topbar/>
+        {/* browser init */}
         <BrowerInitor>
+          {/* Error Boundary Init */}
           <SentryInitor>
             {/* @ts-expect-error Async Server Component */}
             <I18nServer locale={locale}>{children}</I18nServer>
